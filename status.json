@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-06-18T12:43:01+02:00",
+  "lastUpdated": "2025-06-19T10:00:00+02:00",
   "stimmung": {
     "wert": "Neutral",
     "beschreibung": "Fühle mich okay, keine starken Emotionen gerade."
@@ -11,10 +11,6 @@
   "fokus": {
     "wert": "Okay",
     "beschreibung": "Konzentration ist da, aber nicht perfekt."
-  },
-  "gesundheit": {
-    "wert": "Gut",
-    "beschreibung": "Fühle mich körperlich wohl."
   },
   "stundenGeschlafen": {
     "wert": 7.5

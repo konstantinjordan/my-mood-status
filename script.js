@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Dynamische Reihenfolge der Kategorien zur Anzeige
             const categoriesOrder = [
-                'stimmung', 'energie', 'fokus', 'gesundheit',
+                'stimmung', 'energie', 'fokus',
                 'stundenGeschlafen', 'ansprechen'
             ];
 
@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         case 'stimmung': displayName = 'Stimmung'; emoji = '😊'; break;
                         case 'energie': displayName = 'Energie'; emoji = '⚡'; break;
                         case 'fokus': displayName = 'Fokus'; emoji = '🎯'; break;
-                        case 'gesundheit': displayName = 'Gesundheit'; emoji = '❤️‍🩹'; break;
                         case 'stundenGeschlafen': displayName = 'Stunden geschlafen'; emoji = '😴'; break;
                         case 'ansprechen': displayName = 'Ansprechen'; emoji = '💬'; break;
                         default: displayName = categoryKey.charAt(0).toUpperCase() + categoryKey.slice(1);
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         valueText = `<strong>Aktuell:</strong> ${categoryData.wert} ${ansprechenEmoji}`;
                     }
                     else {
-                        // Dynamisches Emoji für Stimmung/Energie/Fokus/Gesundheit basierend auf dem Wert
+                        // Dynamisches Emoji für Stimmung/Energie/Fokus basierend auf dem Wert
                         let statusEmoji = '';
                         const lowerWert = categoryData.wert.toLowerCase();
                         if (lowerWert.includes('gut') || lowerWert.includes('hoch') || lowerWert.includes('scharf') || lowerWert.includes('top')) {

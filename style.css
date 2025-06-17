@@ -132,10 +132,3 @@ h1 {
 .status-level-leichter-angeschlagen { color: #f39c12; }
 .status-level-krank { color: #e74c3c; }
 */
-
-/* Media Queries für sehr kleine Bildschirme, falls nötig */
-@media (max-width: 600px) {
-    .status-category {
-        min-width: 100%; /* Auf sehr kleinen Bildschirmen die volle Breite einnehmen */
-    }
-}
