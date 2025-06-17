@@ -1,0 +1,26 @@
+{
+  "lastUpdated": "2025-06-18T12:43:01+02:00",
+  "stimmung": {
+    "wert": "Neutral",
+    "beschreibung": "Fühle mich okay, keine starken Emotionen gerade."
+  },
+  "energie": {
+    "wert": "Mittel",
+    "beschreibung": "Nicht müde, aber auch nicht super energiegeladen."
+  },
+  "fokus": {
+    "wert": "Okay",
+    "beschreibung": "Konzentration ist da, aber nicht perfekt."
+  },
+  "gesundheit": {
+    "wert": "Gut",
+    "beschreibung": "Fühle mich körperlich wohl."
+  },
+  "stundenGeschlafen": {
+    "wert": 7.5
+  },
+  "ansprechen": {
+    "wert": "Ja",
+    "beschreibung": "Bin offen für Gespräche und Austausch!"
+  }
+}

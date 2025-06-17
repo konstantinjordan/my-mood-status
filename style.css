@@ -1,0 +1,123 @@
+/* Grundlegende Typografie und Farben */
+body {
+    font-family: 'Open Sans', sans-serif; /* Standard-Schriftart */
+    background-color: #f0f2f5; /* Heller Hintergrund */
+    color: #333; /* Dunkler Text */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Oben ausgerichtet */
+    min-height: 100vh; /* Mindesthöhe des Bodys für Zentrierung */
+    box-sizing: border-box; /* Padding in der Box-Größe berücksichtigen */
+}
+
+/* Hauptcontainer für die Seite */
+.container {
+    max-width: 700px;
+    width: 100%;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Titel zentrieren */
+}
+
+/* Überschrift der Seite */
+h1 {
+    font-family: 'Montserrat', sans-serif; /* Überschrift-Schriftart */
+    color: #2c3e50; /* Dunkelblauer Titel */
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+/* Lade- und Fehlermeldungen */
+.loading-message, .error-message {
+    font-style: italic;
+    color: #888;
+    margin-top: 20px;
+}
+
+/* Stil für jede Statuskategorie */
+.status-category {
+    background-color: #e9eff5; /* Leichter bläulicher Hintergrund */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 6px solid #3498db; /* Blauer Akzentstreifen */
+    border-radius: 8px;
+    text-align: left; /* Text innerhalb der Kategorie linksbündig */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out; /* Leichter Hover-Effekt */
+}
+
+.status-category:hover {
+    transform: translateY(-3px);
+}
+
+.status-category h2 {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 0;
+    color: #2980b9; /* Dunkleres Blau für Kategorie-Titel */
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+.status-value {
+    font-size: 1.2em;
+    color: #34495e; /* Dunklerer Wertetext */
+    margin-bottom: 8px;
+}
+
+.status-value strong {
+    color: #2c3e50; /* Stärkerer Kontrast für "Aktuell:" */
+}
+
+.status-description {
+    font-size: 0.95em;
+    color: #555;
+    font-style: italic;
+    margin-top: 10px;
+    border-top: 1px solid #dcdcdc; /* Trennlinie zur Beschreibung */
+    padding-top: 10px;
+}
+
+/* Stil für die letzte Aktualisierungszeit */
+.last-updated {
+    text-align: center;
+    font-style: italic;
+    color: #7f8c8d; /* Grauer Text für Zeitstempel */
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+/* Spezielle Farben für "Ansprechen" Status */
+.ansprechen-ja {
+    color: #27ae60; /* Grün für "Ja" */
+    font-weight: bold;
+}
+
+.ansprechen-nein {
+    color: #e74c3c; /* Rot für "Nein" */
+    font-weight: bold;
+}
+
+/* Zusätzliche Farbhinweise für Stimmungs- oder Energielever (optional) */
+/* Diese kannst du aktivieren, wenn du sie haben möchtest, indem du die /* und */ entfernst */
+/*
+.status-level-gut { color: #2ecc71; }
+.status-level-neutral { color: #f39c12; }
+.status-level-schlecht { color: #e74c3c; }
+.status-level-hoch { color: #2ecc71; }
+.status-level-mittel { color: #f39c12; }
+.status-level-niedrig { color: #e74c3c; }
+.status-level-scharf { color: #2ecc71; }
+.status-level-okay { color: #f39c12; }
+.status-level-zerstreut { color: #e74c3c; }
+.status-level-top { color: #2ecc71; }
+.status-level-leichter-angeschlagen { color: #f39c12; }
+.status-level-krank { color: #e74c3c; }
+*/
