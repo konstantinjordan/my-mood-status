@@ -27,18 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     categoryDiv.classList.add('status-category');
 
                     const title = document.createElement('h2');
-                    // Kategorie-Namen anpassen für die Anzeige
                     let displayName = categoryKey;
+                    let emoji = ''; // Standard-Emoji
                     switch(categoryKey) {
-                        case 'stimmung': displayName = 'Stimmung'; break;
-                        case 'energie': displayName = 'Energie'; break;
-                        case 'fokus': displayName = 'Fokus'; break;
-                        case 'gesundheit': displayName = 'Gesundheit'; break;
-                        case 'stundenGeschlafen': displayName = 'Stunden geschlafen'; break;
-                        case 'ansprechen': displayName = 'Ansprechen'; break;
-                        default: displayName = categoryKey.charAt(0).toUpperCase() + categoryKey.slice(1); // Standard: Ersten Buchstaben groß
+                        case 'stimmung': displayName = 'Stimmung'; emoji = '😊'; break;
+                        case 'energie': displayName = 'Energie'; emoji = '⚡'; break;
+                        case 'fokus': displayName = 'Fokus'; emoji = '🎯'; break;
+                        case 'gesundheit': displayName = 'Gesundheit'; emoji = '❤️‍🩹'; break;
+                        case 'stundenGeschlafen': displayName = 'Stunden geschlafen'; emoji = '😴'; break;
+                        case 'ansprechen': displayName = 'Ansprechen'; emoji = '💬'; break;
+                        default: displayName = categoryKey.charAt(0).toUpperCase() + categoryKey.slice(1);
                     }
-                    title.textContent = displayName;
+                    title.textContent = `${displayName} ${emoji}`; // Emoji zum Titel hinzufügen
 
                     const currentValue = document.createElement('p');
                     currentValue.classList.add('status-value');
@@ -47,13 +47,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (categoryKey === 'stundenGeschlafen') {
                         valueText = `<strong>Aktuell:</strong> ${categoryData.wert} Stunden`;
                     } else if (categoryKey === 'ansprechen') {
-                        // Spezielle Klasse für Ja/Nein zur möglichen Farbgebung
                         currentValue.classList.add(`ansprechen-${categoryData.wert.toLowerCase()}`);
-                        valueText = `<strong>Aktuell:</strong> ${categoryData.wert}`;
+                        let ansprechenEmoji = (categoryData.wert.toLowerCase() === 'ja') ? '✅' : '❌';
+                        valueText = `<strong>Aktuell:</strong> ${categoryData.wert} ${ansprechenEmoji}`;
                     }
                     else {
-                        currentValue.classList.add(`status-level-${categoryData.wert.toLowerCase().replace(/ /g, '-')}`); // Z.B. "gut" -> "status-level-gut"
-                        valueText = `<strong>Aktuell:</strong> ${categoryData.wert}`;
+                        // Dynamisches Emoji für Stimmung/Energie/Fokus/Gesundheit basierend auf dem Wert
+                        let statusEmoji = '';
+                        const lowerWert = categoryData.wert.toLowerCase();
+                        if (lowerWert.includes('gut') || lowerWert.includes('hoch') || lowerWert.includes('scharf') || lowerWert.includes('top')) {
+                            statusEmoji = '🟢'; // Grün für positiv
+                        } else if (lowerWert.includes('mittel') || lowerWert.includes('okay') || lowerWert.includes('neutral') || lowerWert.includes('angeschlagen')) {
+                            statusEmoji = '🟡'; // Gelb für neutral/mittel
+                        } else if (lowerWert.includes('schlecht') || lowerWert.includes('niedrig') || lowerWert.includes('zerstreut') || lowerWert.includes('krank')) {
+                            statusEmoji = '🔴'; // Rot für negativ
+                        }
+                        currentValue.classList.add(`status-level-${lowerWert.replace(/ /g, '-')}`);
+                        valueText = `<strong>Aktuell:</strong> ${categoryData.wert} ${statusEmoji}`;
                     }
                     currentValue.innerHTML = valueText;
 
@@ -80,15 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit',
-                second: '2-digit', // Auch Sekunden anzeigen für Genauigkeit
-                hour12: false // 24-Stunden-Format
+                second: '2-digit',
+                hour12: false
             };
             const updatedDate = new Date(data.lastUpdated).toLocaleString('de-DE', dateOptions);
-            lastUpdatedDisplay.textContent = `Zuletzt aktualisiert: ${updatedDate} Uhr`;
+            lastUpdatedDisplay.textContent = `Zuletzt aktualisiert: ${updatedDate} Uhr 🕒`; // Emoji zum Zeitstempel hinzufügen
 
         })
         .catch(error => {
             console.error('Fehler beim Laden des Status:', error);
-            document.getElementById('status-display').innerHTML = '<p class="error-message">Konnte Status nicht laden. Bitte versuche es später erneut.</p>';
+            document.getElementById('status-display').innerHTML = '<p class="error-message">Konnte Status nicht laden. Bitte versuche es später erneut. 😞</p>';
         });
 });

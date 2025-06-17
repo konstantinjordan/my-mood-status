@@ -1,8 +1,8 @@
-/* Grundlegende Typografie und Farben */
+/* Grundlegende Typografie und Farben für Dark Mode */
 body {
     font-family: 'Open Sans', sans-serif; /* Standard-Schriftart */
-    background-color: #f0f2f5; /* Heller Hintergrund */
-    color: #333; /* Dunkler Text */
+    background-color: #1a1a2e; /* Dunkler Hintergrund */
+    color: #e0e0e0; /* Heller Text */
     line-height: 1.6;
     margin: 0;
     padding: 20px;
@@ -15,20 +15,20 @@ body {
 
 /* Hauptcontainer für die Seite */
 .container {
-    max-width: 700px;
+    max-width: 960px; /* Erhöhte maximale Breite für mehr Platz nebeneinander */
     width: 100%;
     margin: 30px auto;
-    background: #fff;
+    background: #16213e; /* Dunklerer Hintergrund für den Container */
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Dunklerer Schatten */
     text-align: center; /* Titel zentrieren */
 }
 
 /* Überschrift der Seite */
 h1 {
     font-family: 'Montserrat', sans-serif; /* Überschrift-Schriftart */
-    color: #2c3e50; /* Dunkelblauer Titel */
+    color: #e94560; /* Akzentfarbe für den Titel (ein helles Rot) */
     text-align: center;
     margin-bottom: 40px;
     font-size: 2.5em;
@@ -38,50 +38,61 @@ h1 {
 /* Lade- und Fehlermeldungen */
 .loading-message, .error-message {
     font-style: italic;
-    color: #888;
+    color: #a0a0a0;
     margin-top: 20px;
+}
+
+/* Flexbox-Container für Status-Kategorien */
+#status-display {
+    display: flex; /* Aktiviert Flexbox */
+    flex-wrap: wrap; /* Erlaubt das Umbrechen in die nächste Zeile */
+    gap: 20px; /* Abstand zwischen den Boxen */
+    justify-content: center; /* Zentriert die Boxen horizontal */
 }
 
 /* Stil für jede Statuskategorie */
 .status-category {
-    background-color: #e9eff5; /* Leichter bläulicher Hintergrund */
+    background-color: #0f3460; /* Dunklerer Hintergrund für die Boxen */
     padding: 20px;
-    margin-bottom: 20px;
-    border-left: 6px solid #3498db; /* Blauer Akzentstreifen */
+    /* max-width und min-width für flexible Größenanpassung */
+    min-width: 280px; /* Mindestbreite, damit die Boxen nicht zu klein werden */
+    flex: 1; /* Erlaubt den Boxen, sich auszudehnen, aber respektiert min-width */
+    box-sizing: border-box; /* Stellt sicher, dass Padding in der Breite enthalten ist */
+    border-left: 6px solid #e94560; /* Roter Akzentstreifen */
     border-radius: 8px;
     text-align: left; /* Text innerhalb der Kategorie linksbündig */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease-in-out; /* Leichter Hover-Effekt */
 }
 
 .status-category:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px); /* Stärkerer Hover-Effekt */
 }
 
 .status-category h2 {
     font-family: 'Montserrat', sans-serif;
     margin-top: 0;
-    color: #2980b9; /* Dunkleres Blau für Kategorie-Titel */
+    color: #e94560; /* Akzentfarbe für Kategorie-Titel */
     font-size: 1.6em;
     margin-bottom: 10px;
 }
 
 .status-value {
     font-size: 1.2em;
-    color: #34495e; /* Dunklerer Wertetext */
+    color: #e0e0e0; /* Heller Text für Werte */
     margin-bottom: 8px;
 }
 
 .status-value strong {
-    color: #2c3e50; /* Stärkerer Kontrast für "Aktuell:" */
+    color: #a0a0a0; /* Leichter Kontrast für "Aktuell:" */
 }
 
 .status-description {
     font-size: 0.95em;
-    color: #555;
+    color: #b0b0b0;
     font-style: italic;
     margin-top: 10px;
-    border-top: 1px solid #dcdcdc; /* Trennlinie zur Beschreibung */
+    border-top: 1px solid #2a415a; /* Dunklere Trennlinie */
     padding-top: 10px;
 }
 
@@ -89,14 +100,14 @@ h1 {
 .last-updated {
     text-align: center;
     font-style: italic;
-    color: #7f8c8d; /* Grauer Text für Zeitstempel */
+    color: #888; /* Grauer Text für Zeitstempel */
     margin-top: 40px;
     font-size: 0.9em;
 }
 
 /* Spezielle Farben für "Ansprechen" Status */
 .ansprechen-ja {
-    color: #27ae60; /* Grün für "Ja" */
+    color: #2ecc71; /* Grün für "Ja" */
     font-weight: bold;
 }
 
@@ -121,3 +132,10 @@ h1 {
 .status-level-leichter-angeschlagen { color: #f39c12; }
 .status-level-krank { color: #e74c3c; }
 */
+
+/* Media Queries für sehr kleine Bildschirme, falls nötig */
+@media (max-width: 600px) {
+    .status-category {
+        min-width: 100%; /* Auf sehr kleinen Bildschirmen die volle Breite einnehmen */
+    }
+}
