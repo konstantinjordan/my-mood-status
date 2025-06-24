@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2025-06-19T10:00:00+02:00",
+  "lastUpdated": "2025-06-24T01:57:31.490Z",
   "stimmung": {
-    "wert": "Neutral",
-    "beschreibung": "Fühle mich okay, keine starken Emotionen gerade."
+    "wert": "[user_input:Stimmung (z.B. Gut, Neutral, Schlecht):]",
+    "beschreibung": "[user_input:Beschreibung der Stimmung (optional):]"
   },
   "energie": {
     "wert": "Mittel",
